@@ -1,6 +1,6 @@
 # session-couchnode
 Add a Couchbase Store for login sessions.
-This package is designed specifically to work as storage for Express Session.
+This package is designed specifically to work as storage for an Express Session.
 
 # Installing
 To install the lastest release using npm, run:
