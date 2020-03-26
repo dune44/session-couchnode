@@ -48,7 +48,7 @@ module.exports = function( session ){
             }
             this.client = cluster.openBucket(connectOptions.bucket,  function(err){
                 if (err){
-                    log("Could not connect to couchbase with bucket: " + connectOptions.bucket);
+                    console.log( "Could not connect to couchbase with bucket: " + connectOptions.bucket );
                     self.emit('disconnect');
                 }else{
                     self.emit('connect');
