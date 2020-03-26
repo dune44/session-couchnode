@@ -63,7 +63,6 @@ module.exports = function( session ){
     CouchbaseStore.prototype.get = function(sid, fn){
         if ('function' !== typeof fn) { fn = noop; }
         sid = this.prefix + sid;
-        log('GET '+sid);
         this.client.get(sid, function(err, data){
             if (err && err.code == 13) {
                 return fn();
@@ -72,7 +71,6 @@ module.exports = function( session ){
             if (!data || !data.value) return fn();
             var result;
             data = data.value.toString();
-            log('GOT '+ data);
             try {
                 result = JSON.parse(data);
             } catch (err) {
@@ -91,10 +89,9 @@ module.exports = function( session ){
             ttl = ttl || ('number' == typeof maxAge
                 ? maxAge / 1000 | 0
                 : oneDay);
-            log('SETEX'+sid+'ttl:'+ttl+' '+sess);
             this.client.upsert(sid, sess, {expiry:ttl}, function(err){
-                err || log('Session Set complete');
-                fn && fn.apply(this, arguments);
+              if( err ) console.log( err );
+              fn && fn.apply(this, arguments);
             });
         } catch (err) {
             fn && fn(err);
@@ -113,12 +110,7 @@ module.exports = function( session ){
         ttl = ttl || ('number' == typeof maxAge
                 ? maxAge / 1000 | 0
                 : oneDay);
-        log('EXPIRE'+sid+' ttl:'+ttl);
         this.client.touch(this.prefix + sid, ttl, fn);
     };
     return CouchbaseStore;
-};
-const log = ( msg ) => {
-  // TODO: bring in logging.
-  console.log( msg );
 };
