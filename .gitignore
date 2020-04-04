@@ -1,3 +1,10 @@
+# protected directories
+.config
+.directory
+.gitignore
+coverage
+cspell.json
+
 # Logs
 logs
 *.log

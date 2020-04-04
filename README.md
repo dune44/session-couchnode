@@ -13,7 +13,7 @@ session-couchnode takes in Express Session
 
 ```bash
 const session = require( 'express-session' );
-const session-couchnode = require( 'session-couchnode' )( session );
+const sessionCouchnode = require( 'session-couchnode' )( session );
 ```
 Next you will need to set the options
 

@@ -4,7 +4,7 @@
   "description": "Add a Couchbase Store for login sessions.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha tests --recursive  --exit"
   },
   "repository": {
     "type": "git",
@@ -15,8 +15,15 @@
   "bugs": {
     "url": "https://github.com/dune44/session-couchnode/issues"
   },
-  "homepage": "https://github.com/dune44/session-couchnode#readme",
+  "homepage": "https://github.com/dune44/session-couchnode",
   "dependencies": {
     "couchbase": "^2.6.11"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "express-session": "^1.17.0",
+    "mocha": "^7.1.1",
+    "mock-session": "0.0.5",
+    "moment": "^2.24.0"
   }
 }
