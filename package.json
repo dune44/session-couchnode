@@ -17,13 +17,13 @@
   },
   "homepage": "https://github.com/dune44/session-couchnode",
   "dependencies": {
-    "couchbase": "3.0.4"
+    "couchbase": "3.0.7"
   },
   "devDependencies": {
     "chai": "4.2.0",
     "express-session": "1.17.1",
-    "mocha": "8.0.1",
+    "mocha": "8.2.1",
     "mock-session": "0.0.5",
-    "moment": "2.27.0"
+    "moment": "2.29.1"
   }
 }
